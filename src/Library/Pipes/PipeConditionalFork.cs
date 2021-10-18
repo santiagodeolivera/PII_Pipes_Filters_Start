@@ -6,11 +6,11 @@ namespace CompAndDel.Pipes
 {
     public class PipeConditionalFork : IPipe
     {
-        private FilterConditional filter { get; }
+        private Condition filter { get; }
         private IPipe pipeTrue { get; }
         private IPipe pipeFalse { get; }
 
-        public PipeConditionalFork(FilterConditional filter, IPipe pipeTrue, IPipe pipeFalse)
+        public PipeConditionalFork(Condition filter, IPipe pipeTrue, IPipe pipeFalse)
         {
             this.filter = filter;
             this.pipeTrue = pipeTrue;
@@ -19,8 +19,7 @@ namespace CompAndDel.Pipes
 
         public IPicture Send(IPicture picture)
         {
-            picture = this.filter.Filter(picture);
-            return this.filter.ReturnsTrue ? this.pipeTrue.Send(picture) : this.pipeFalse.Send(picture);
+            return this.filter.Filter(picture) ? this.pipeTrue.Send(picture) : this.pipeFalse.Send(picture);
         }
     }
 }

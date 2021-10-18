@@ -10,19 +10,20 @@ namespace CompAndDel.Filters
     public class FilterTweet : IFilter
     {
         public string Path { get; }
+        public string TweetStr { get; }
 
-        public FilterTweet(string path)
+        public FilterTweet(string path, string tweetStr)
         {
             this.Path = path;
+            this.TweetStr = tweetStr;
         }
 
         public IPicture Filter(IPicture image)
         {
-            PictureProvider provider = new PictureProvider();
-            provider.SavePicture(image, this.Path);
+            Utils.SaveImage(image, this.Path);
 
             TwitterImage twitter = new TwitterImage();
-            Console.WriteLine(twitter.PublishToTwitter("Image tweeted!", this.Path));
+            Console.WriteLine(twitter.PublishToTwitter(this.TweetStr, this.Path));
             return image;
         }
     }
