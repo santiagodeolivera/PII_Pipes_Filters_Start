@@ -6,6 +6,9 @@ namespace CompAndDel.Pipes
 {
     public class PipeConditionalFork : IPipe
     {
+        // It was decided to use the class Condition because the responsibility
+        // of receiving a picture and returning a boolean value wasn't quite fitting of the IFilter interface
+        // (which receives a picture and returns another picture).
         private Condition filter { get; }
         private IPipe pipeTrue { get; }
         private IPipe pipeFalse { get; }
