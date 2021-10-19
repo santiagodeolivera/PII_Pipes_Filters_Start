@@ -4,7 +4,7 @@ using System.Drawing;
 namespace CompAndDel.Filters
 {
     /// <summary>
-    /// Un filtro que recibe una imagen y retorna su negativo.
+    /// Un filtro que guarda una imagen en el sistema de archivos.
     /// </remarks>
     public class FilterSave : IFilter
     {

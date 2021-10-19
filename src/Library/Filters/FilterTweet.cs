@@ -5,7 +5,7 @@ using TwitterUCU;
 namespace CompAndDel.Filters
 {
     /// <summary>
-    /// Un filtro que recibe una imagen y retorna su negativo.
+    /// Un filtro que publica la imagen en Twitter.
     /// </remarks>
     public class FilterTweet : IFilter
     {
