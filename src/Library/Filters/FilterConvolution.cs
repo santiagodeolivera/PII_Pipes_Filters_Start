@@ -9,7 +9,7 @@ namespace CompAndDel.Filters
     /// https://en.wikipedia.org/wiki/Box_blur utilizando el kernel
     /// https://wikimedia.org/api/rest_v1/media/math/render/svg/91256bfeece3344f8602e288d445e6422c8b8a1c.
     /// </summary>
-    public class FilterBlurConvolution : IFilter
+    public class FilterConvolution : IFilter
     {
         protected int[,] kernel;
         protected int complement, divider;
@@ -18,7 +18,7 @@ namespace CompAndDel.Filters
         /// Inicializa una nueva instancia de <c>FilterBlurConvolution</c> asignando el kernel, complemento, y divisor
         /// según https://wikimedia.org/api/rest_v1/media/math/render/svg/91256bfeece3344f8602e288d445e6422c8b8a1c.
         /// </summary>
-        public FilterBlurConvolution(((int, int, int), (int, int, int), (int, int, int)) kernel)
+        public FilterConvolution(((int, int, int), (int, int, int), (int, int, int)) kernel)
         {
             this.kernel = new int[,]
             {
