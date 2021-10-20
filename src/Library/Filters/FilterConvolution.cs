@@ -18,7 +18,7 @@ namespace CompAndDel.Filters
         /// Inicializa una nueva instancia de <c>FilterBlurConvolution</c> asignando el kernel, complemento, y divisor
         /// según https://wikimedia.org/api/rest_v1/media/math/render/svg/91256bfeece3344f8602e288d445e6422c8b8a1c.
         /// </summary>
-        public FilterConvolution(((int, int, int), (int, int, int), (int, int, int)) kernel)
+        public FilterConvolution(((int, int, int), (int, int, int), (int, int, int)) kernel, int complement, int divider)
         {
             this.kernel = new int[,]
             {
@@ -26,8 +26,8 @@ namespace CompAndDel.Filters
                 { kernel.Item2.Item1, kernel.Item2.Item2, kernel.Item2.Item3 },
                 { kernel.Item3.Item1, kernel.Item3.Item2, kernel.Item3.Item3 }
             };
-            this.complement = 0;
-            this.divider = 9;
+            this.complement = complement;
+            this.divider = divider;
         }
 
         /// Procesa la imagen pasada por parametro mediante un kernel, y retorna la imagen resultante.
